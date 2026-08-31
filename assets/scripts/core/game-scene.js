@@ -6440,7 +6440,7 @@ _showwippopup() {
     const panelContainer = this.add.container(xPos, yPos);
     this._creatorPopup.add(panelContainer);
 
-    const popupBg = this.add.image(0, 0, "GJ_popup").setScale(1.5);
+    const popupBg = this.add.image(0, 0, "GJ_popup").setScale(1);
     panelContainer.add(popupBg);
 
     const closeBtn = this.add.image(-popupBg.displayWidth / 2, -popupBg.displayHeight / 2, "GJ_WebSheet", "GJ_closeBtn_001.png").setScale(0.8).setInteractive();
