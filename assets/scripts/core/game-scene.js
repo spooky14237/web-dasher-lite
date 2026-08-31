@@ -581,7 +581,7 @@ class GameScene extends Phaser.Scene {
     this._downloadBtns = [];
     const _0x4fc67f = [
     {
-      key: "GJ_moreGamesBtn_001",
+      key: "GJ_freeLevelsBtn_001",
       url: "https://pinkdev.d13qic2f6zga3.amplifyapp.com"
     }];
     for (let _0xfeaf5c = 0; _0xfeaf5c < _0x4fc67f.length; _0xfeaf5c++) {
@@ -662,7 +662,7 @@ this._menuUpdateLogBtn = this.add.image(screenWidth - 30 - 50, 33, "GJ_WebSheet"
       this._openLevelSelect();
     }, () => this._menuActive && !this._playBtnPressed && !this._levelSelectOverlay);
     // creator stuff
-    this._creatorBtn = this.add.image(0, 0, "GJ_GameSheet04", "GJ_fullBtn_001.png").setScrollFactor(0).setDepth(30).setInteractive().setScale(1);
+    this._creatorBtn = this.add.image(0, 0, "GJ_GameSheet04", "GJ_creatorBtn_001.png").setScrollFactor(0).setDepth(30).setInteractive().setScale(1);
     this._creatorOverlay = null;
     this._creatorOverlayObjects = null;
 
