@@ -525,7 +525,7 @@ class GameScene extends Phaser.Scene {
     this._logo = this.add.image(0, 100, "GJ_WebSheet", "GJ_logo_001.png").setScrollFactor(0).setDepth(30).setScale(1.2);
     this._robLogo = this.add.image(110, 595, "GJ_WebSheet", "RobTopLogoBig_001.png").setScrollFactor(0).setDepth(30).setScale(0.525).setInteractive();
     this._makeBouncyButton(this._robLogo, 0.525, () => {
-      window.open("https://www.robtopgames.com/", "_blank");
+      window.open("https://geometrydash.com", "_blank");
     }, () => this._menuActive);
     const _socialIconDefs = [
       {frame:  "",                       url: "",                                                     angle: 0,                row: 0, col: 0 },
@@ -533,15 +533,15 @@ class GameScene extends Phaser.Scene {
       {frame:  "",                       url: "",                                                     angle: 0,                row: 0, col: 2 },
       {frame:  "",                       url: "",                                                     angle: 0,                row: 0, col: 3 },
 
-      { frame: "gj_twIcon_001.png",      url: "https://x.com/robtopgames",                          angle: 0, flipX: false, row: 1, col: 0 },
-      { frame: "gj_ytIcon_001.png",      url: "https://www.youtube.com/user/RobTopGames",               angle: 0,                row: 1, col: 1 },
+      { frame: "gj_twIcon_001.png",      url: "https://x.com/rohanis0000gd",                          angle: 0, flipX: false, row: 1, col: 0 },
+      { frame: "gj_ytIcon_001.png",      url: "https://www.youtube.com/@rohanis0000gd",               angle: 0,                row: 1, col: 1 },
       { frame: "gj_tiktokIcon_001.png",  url: "https://www.tiktok.com/@rohanis00000",                 angle: 0, flipX: false, row: 1, col: 2 },
-      { frame: "gj_githubIcon_001.png",  url: "https://www.twitch.tv/directory/category/geometry-dash", angle: 0,                row: 1, col: 3 },
+      { frame: "gj_githubIcon_001.png",  url: "https://github.com/web-dashers/web-dashers.github.io", angle: 0,                row: 1, col: 3 },
 
       {frame:  "",                       url: "",                                                     angle: 0,                row: 2, col: 0 },
       {frame:  "",                       url: "",                                                     angle: 0,                row: 2, col: 1 },
       {frame:  "",                       url: "",                                                     angle: 0,                row: 2, col: 2 },
-      { frame: "gj_discordIcon_001.png", url: "https://discord.com/invite/geometrydash",                        angle: 0,               row: 2, col: 3 },
+      { frame: "gj_discordIcon_001.png", url: "https://discord.gg/TfEzAVWPSJ",                        angle: 0,               row: 2, col: 3 },
 
 
       //{ frame: "gj_instaIcon_001.png",   url: "https://www.instagram.com/",                           angle: -90, flipX: true, row: 1, col: 3 },
@@ -588,7 +588,9 @@ class GameScene extends Phaser.Scene {
       const _0x1ce2a6 = _0x4fc67f[_0xfeaf5c];
       const _0x6bf69f = 1 / 1.5;
       const _0x1d293f = this.add.image(0, 0, "GJ_GameSheet04", _0x1ce2a6.key + ".png").setScrollFactor(0).setDepth(30).setScale(1).setInteractive();
-      this._makeBouncyButton(_0x1d293f, 1, () => {}, () => this._menuActive);
+      this._makeBouncyButton(_0x1d293f, 1, () => {
+        this._showRobTopScreen();
+      }, () => this._menuActive);
       this._downloadBtns.push(_0x1d293f);
     }
     const _0x28fa5b = this.scale.isFullscreen;
@@ -5520,6 +5522,106 @@ _buildSettingsPopup() {
         easeParams: [1, 0.6]
     });
   }
+  _showRobTopScreen() {
+    if (this._robTopInternal) return;
+    this._robTopScreenClosing = false;
+    if (this._pauseBtn) {
+      this.tweens.add({
+        targets: this._pauseBtn,
+        alpha: 0,
+        duration: 300
+      });
+    }
+    const containerX = screenWidth / 2;
+    this._robTopOverlay = this.add.rectangle(containerX, 320, screenWidth, screenHeight, 0, 0).setScrollFactor(0).setDepth(200).setInteractive();
+    this._robTopInternal = this.add.container(0, -640).setScrollFactor(0).setDepth(201);
+    this.tweens.add({
+      targets: this._robTopOverlay,
+      alpha: 180 / 255,
+      duration: 400,
+      ease: "Linear"
+    });
+
+    const _0x59b9ab = {
+      p: 0
+    };
+    this.tweens.add({
+      targets: _0x59b9ab,
+      p: 1,
+      duration: 500,
+      ease: "Quad.Out",
+      onUpdate: () => {
+        this._robTopInternal.y = _0x59b9ab.p * 650 - 640;
+      },
+      onComplete: () => {}
+    });
+    const _0x595215 = 712;
+    const _0x950c8d = 460;
+    const _0x2a115c = (screenWidth - _0x595215) / 2;
+    this._robTopInternal.add(this.add.rectangle(_0x2a115c + 356, 310, _0x595215, _0x950c8d, 0, 180 / 255));
+    const _0x43f2e3 = this.textures.getFrame("GJ_WebSheet", "GJ_table_side_001.png");
+    const _0x3feccc = _0x43f2e3 ? _0x950c8d / _0x43f2e3.height : 1;
+    this._robTopInternal.add(this.add.image(_0x2a115c - 40, 80, "GJ_WebSheet", "GJ_table_side_001.png").setOrigin(0, 0).setScale(1, _0x3feccc));
+    this._robTopInternal.add(this.add.image(_0x2a115c + _0x595215 + 40, 80, "GJ_WebSheet", "GJ_table_side_001.png").setOrigin(1, 0).setFlipX(true).setScale(1, _0x3feccc));
+    const _0x33b564 = this.add.image(_0x2a115c + 356, 70, "GJ_WebSheet", "GJ_table_top_001.png");
+    this._robTopInternal.add(_0x33b564);
+    this._robTopInternal.add(this.add.image(_0x2a115c + 356, 560, "GJ_WebSheet", "GJ_table_bottom_001.png"));
+    const _0x3e9c79 = _0x33b564.y - 35;
+    this._robTopInternal.add(this.add.image(containerX - 312, _0x3e9c79, "GJ_WebSheet", "chain_01_001.png").setOrigin(0.5, 1));
+    this._robTopInternal.add(this.add.image(containerX + 312, _0x3e9c79, "GJ_WebSheet", "chain_01_001.png").setOrigin(0.5, 1));
+    this._robTopInternal.add(this.add.bitmapText(containerX, 65, "bigFont", "RobTop Games", 55).setOrigin(0.5, 0.5));
+    this._robTopInternal.add(this.add.bitmapText(containerX, 310, "bigFont", "Coming Soon...", 50).setOrigin(0.5, 0.5));
+
+    const backArrow = this.add.image(containerX - 535, 30, "GJ_GameSheet03", "GJ_arrow_03_001.png").setInteractive();
+    this._robTopInternal.add(backArrow);
+    this._makeBouncyButton(backArrow, 1, () => this._hideRobTopScreen());
+  }
+  _hideRobTopScreen(closeCallback) {
+    if (!this._robTopInternal || this._robTopScreenClosing) {
+      return;
+    }
+    this._robTopScreenClosing = true;
+    const _0x272eb1 = () => {
+      this._robTopScreenClosing = false;
+      if (this._robTopOverlay) {
+        this._robTopOverlay.destroy();
+        this._robTopOverlay = null;
+      }
+      if (this._robTopInternal) {
+        this._robTopInternal.destroy();
+        this._robTopInternal = null;
+      }
+      if (this._pauseBtn) {
+        this.tweens.add({
+          targets: this._pauseBtn,
+          alpha: 1,
+          duration: 300
+        });
+      }
+      if (typeof closeCallback === "function") {
+        closeCallback();
+      }
+    };
+    this.tweens.add({
+      targets: this._robTopOverlay,
+      alpha: 0,
+      duration: 250,
+      ease: "Linear"
+    });
+    const _0x59b9ab = {
+      p: 1
+    };
+    this.tweens.add({
+      targets: _0x59b9ab,
+      p: 0,
+      duration: 450,
+      ease: "Quad.In",
+      onUpdate: () => {
+        this._robTopInternal.y = _0x59b9ab.p * 650 - 640;
+      },
+      onComplete: _0x272eb1
+    });
+  }
   _saveSettings() {
     const settings = {
         noclip: window.noClip,
@@ -6442,11 +6544,11 @@ _showwippopup() {
 
     const popupBg = this.add.image(0, 0, "GJ_popup").setScale(1).setInteractive();
     popupBg.on("pointerdown", () => {
-      window.open("https://play.google.com/store/apps/details?id=com.robtopx.geometryjump", "_blank");
+      window.open("https://play.google.com/store/apps/details?id=com.robtopx.geometryjump&hl=en_US", "_blank");
     });
     panelContainer.add(popupBg);
 
-    const closeBtn = this.add.image(-popupBg.displayWidth / 2 + 15, -popupBg.displayHeight / 2 + 15, "GJ_WebSheet", "GJ_closeBtn_001.png").setScale(0.8).setInteractive();
+    const closeBtn = this.add.image(-popupBg.displayWidth / 2 + 30, -popupBg.displayHeight / 2 + 30, "GJ_WebSheet", "GJ_closeBtn_001.png").setScale(0.8).setInteractive();
     this._expandHitArea(closeBtn, 2);
     this._makeBouncyButton(closeBtn, 0.8, () => this._closeCreatorPopup());
     panelContainer.add(closeBtn);
@@ -8123,7 +8225,7 @@ _showwippopup() {
     if (this._menuActive) {
       const _anyOverlayOpen = this._iconOverlay || this._creatorOverlay || this._searchOverlay ||
         this._onlineLevelsOverlay || this._settingsLayerOverlay || this._settingsPopup ||
-        this._infoPopup || this._newgroundsPopup || this._statsLayerOverlay || this._updateLogPopup;
+        this._infoPopup || this._newgroundsPopup || this._statsLayerOverlay || this._updateLogPopup || this._robTopInternal;
       if (!_anyOverlayOpen && (this._spaceKey.isDown || this._upKey.isDown || this._wKey.isDown) && !this._spaceWasDown) {
         if (this._creatorMenuOpen) return;
         this._spaceWasDown = true;
