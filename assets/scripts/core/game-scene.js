@@ -6440,7 +6440,10 @@ _showwippopup() {
     const panelContainer = this.add.container(xPos, yPos);
     this._creatorPopup.add(panelContainer);
 
-    const popupBg = this.add.image(0, 0, "GJ_popup").setScale(1);
+    const popupBg = this.add.image(0, 0, "GJ_popup").setScale(1).setInteractive();
+    popupBg.on("pointerdown", () => {
+      window.open("https://play.google.com/store/apps/details?id=com.robtopx.geometryjump", "_blank");
+    });
     panelContainer.add(popupBg);
 
     const closeBtn = this.add.image(-popupBg.displayWidth / 2 + 15, -popupBg.displayHeight / 2 + 15, "GJ_WebSheet", "GJ_closeBtn_001.png").setScale(0.8).setInteractive();
