@@ -572,7 +572,7 @@ class GameScene extends Phaser.Scene {
     return icon;
   });
 
-    this._copyrightText = this.add.text(0, 630, "© 2026 RobTop Games · geometrydash.com", {
+    this._copyrightText = this.add.text(0, 630, "", {
       fontSize: "14px",
       color: "#ffffff",
       fontFamily: "Arial"
@@ -662,7 +662,7 @@ this._menuUpdateLogBtn = this.add.image(screenWidth - 30 - 50, 33, "GJ_WebSheet"
       this._openLevelSelect();
     }, () => this._menuActive && !this._playBtnPressed && !this._levelSelectOverlay);
     // creator stuff
-    this._creatorBtn = this.add.image(0, 0, "GJ_GameSheet04", "GJ_creatorBtn_001.png").setScrollFactor(0).setDepth(30).setInteractive().setScale(1);
+    this._creatorBtn = this.add.image(0, 0, "GJ_GameSheet04", "GJ_fullBtn_001.png").setScrollFactor(0).setDepth(30).setInteractive().setScale(1);
     this._creatorOverlay = null;
     this._creatorOverlayObjects = null;
 
