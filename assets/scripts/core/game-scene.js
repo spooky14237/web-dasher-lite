@@ -3641,8 +3641,6 @@ this._menuFsBtn = this.add.image(33, 33, "GJ_WebSheet", _0x28fa5b ? "toggleFulls
   this._creatorBtn.x = (screenWidth / 2) + this._playBtn.width / 2 + 50 + (this._creatorBtn.width * this._creatorBtn.scaleX) / 2;
   this.tweens.killTweensOf(this._creatorBtn, "y");
   this._creatorBtn.y = 320;
-  if (this._lvlEditDecor) this._lvlEditDecor.destroy();
-  this._lvlEditDecor = this.add.image(this._creatorBtn.x + 110, this._creatorBtn.y - (this._creatorBtn.height * this._creatorBtn.scaleY) / 2 + 160, "GJ_GameSheet03", "GJ_lvlEdit_001.png").setScrollFactor(0).setDepth(31);
 }
     this._spaceWasDown = false;
     this._spaceKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
@@ -6548,7 +6546,7 @@ _showwippopup() {
     });
     panelContainer.add(popupBg);
 
-    const closeBtn = this.add.image(-popupBg.displayWidth / 2 + 30, -popupBg.displayHeight / 2 + 30, "GJ_WebSheet", "GJ_closeBtn_001.png").setScale(0.8).setInteractive();
+    const closeBtn = this.add.image(-popupBg.displayWidth / 2 + 15, -popupBg.displayHeight / 2 + 15, "GJ_WebSheet", "GJ_closeBtn_001.png").setScale(0.8).setInteractive();
     this._expandHitArea(closeBtn, 2);
     this._makeBouncyButton(closeBtn, 0.8, () => this._closeCreatorPopup());
     panelContainer.add(closeBtn);
@@ -7162,9 +7160,6 @@ _showwippopup() {
     }
     _dismiss(this._chrSelDecor, { y: screenHeight + 100, alpha: 0, duration: 200, ease: "Quad.In" }, () => {
       if (this._chrSelDecor) { this._chrSelDecor.destroy(); this._chrSelDecor = null; }
-    });
-    _dismiss(this._lvlEditDecor, { y: screenHeight + 100, alpha: 0, duration: 200, ease: "Quad.In" }, () => {
-      if (this._lvlEditDecor) { this._lvlEditDecor.destroy(); this._lvlEditDecor = null; }
     });
     //creator stuff the threequel
     if (this._creatorBtn) {
