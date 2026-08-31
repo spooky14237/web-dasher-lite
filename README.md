@@ -4,11 +4,11 @@
 
 <div align="center">
   <img  
-  alt="Web Dashers" 
+  alt="Web Dashers lite" 
   src="./wd_branding/wordmark/wordmark_1080.png" 
   />
   <p>
-  <strong>A modded Geometry Dash demo with extra features added!</strong>
+  <strong>A lite Geometry Dash demo with lite features added!</strong>
   </p>
   <a 
   href="https://web-dashers.github.io/" 
@@ -37,14 +37,12 @@
 
 ## Features currently implemented:
 - **Main Menu** - A mostly fully working main menu with all 2.1 levels.
-- **Online Levels** - You can play online levels, and create your own!
 - **Icon Kit** - A working Icon Kit with different colors and icons to choose from! (Currently not including 2.2 icons.)
 - **Different Gamemodes** - Just about every gamemode is implemented currently, with the exception of the Swing.
 - **Extra Settings** - You can enable and disable things like Noclip or Show Hitboxes from the settings menu, along with other settings, like the level percentage!
 
 ## Things currently in development:
 - **Practice Mode** - Although an early version of Practice mode is already in the game, we hope to make a completely working Practice Mode with no bugs at all.
-- **Level Editor** - We wish to add a fully working level editor, with all of the objects in Geometry Dash to choose from, and more! Currently, the editor is very run down and still needs a big amount of it's features to be added.
 - **Slopes** - Slopes are almost done, but we need to get their physics correct with other speed portals. 
 
 <sub> beg pinkdev to please finish slopes faster he is taking too long<sub>
@@ -54,9 +52,9 @@
 - **All Objects Working** - In the current state of Web Dashers, you might notice some objects seem to be bugged, such as a lack of animations, and coloring being incorrect.
 
 ### Come try out the WIP Web Dashers demo at:
-**[web-dashers.github.io](https://web-dashers.github.io/)**
+**[spooky.github.io/web-dasher-lite](https://spooky14237.github.io/web-dasher-lite/)**
 
-<sub> Last updated: 8/7/2026
+<sub> Last updated: 8/31/2026
 
 ---
 > - <sub>Special thanks to all of the people that help the project by contributing, and Please support us by starring the repo, as it helps us out a ton!!<sub>
