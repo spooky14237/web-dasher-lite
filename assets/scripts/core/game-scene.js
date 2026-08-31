@@ -588,7 +588,7 @@ class GameScene extends Phaser.Scene {
       const _0x1ce2a6 = _0x4fc67f[_0xfeaf5c];
       const _0x6bf69f = 1 / 1.5;
       const _0x1d293f = this.add.image(0, 0, "GJ_GameSheet04", _0x1ce2a6.key + ".png").setScrollFactor(0).setDepth(30).setScale(1).setInteractive();
-      this._makeBouncyButton(_0x1d293f, 1, () => window.open(_0x1ce2a6.url, "_blank"), () => this._menuActive);
+      this._makeBouncyButton(_0x1d293f, 1, () => {}, () => this._menuActive);
       this._downloadBtns.push(_0x1d293f);
     }
     const _0x28fa5b = this.scale.isFullscreen;
@@ -652,7 +652,9 @@ this._menuFsBtn = this.add.image(33, 33, "GJ_WebSheet", _0x28fa5b ? "toggleFulls
       this._openLevelSelect();
     }, () => this._menuActive && !this._playBtnPressed && !this._levelSelectOverlay);
     // creator stuff
-    this._creatorBtn = this.add.image(0, 0, "GJ_GameSheet04", "GJ_creatorBtn_001.png").setScrollFactor(0).setDepth(30).setInteractive().setScale(1);
+    this._creatorBtn = this.add.image(0, 0, "GJ_GameSheet04", "GJ_fullBtn_001.png").setScrollFactor(0).setDepth(30).setInteractive().setScale(1).setDisplaySize(124, 170).setAngle(90).setFlipY(true);
+    this._creatorBtn.baseScaleX = this._creatorBtn.scaleX;
+    this._creatorBtn.baseScaleY = this._creatorBtn.scaleY;
     this._creatorOverlay = null;
     this._creatorOverlayObjects = null;
 
@@ -2644,7 +2646,7 @@ this._menuFsBtn = this.add.image(33, 33, "GJ_WebSheet", _0x28fa5b ? "toggleFulls
       });
     };
     this._makeBouncyButton(this._creatorBtn, 1, () => {
-      this._openCreatorMenu();
+      this._buildCreatorPopup();
     }, () => this._menuActive && !this._levelSelectOverlay);
       //icon stufff
     this._iconBtn = this.add.image(0, 0, "GJ_GameSheet03", "GJ_garageBtn_001.png").setScrollFactor(0).setDepth(30).setInteractive().setScale(1);
@@ -6422,6 +6424,43 @@ _showwippopup() {
     if (this._howToPlayPopup) {
       this._howToPlayPopup.destroy();
       this._howToPlayPopup = null;
+    }
+  }
+  _buildCreatorPopup() {
+    if (this._creatorPopup) {
+      return;
+    }
+    const xPos = screenWidth / 2;
+    const yPos = 320;
+    this._creatorPopup = this.add.container(0, 0).setScrollFactor(0).setDepth(300);
+    const dimmer = this.add.rectangle(xPos, yPos, screenWidth, screenHeight, 0, 100 / 255);
+    dimmer.setInteractive();
+    this._creatorPopup.add(dimmer);
+
+    const panelContainer = this.add.container(xPos, yPos);
+    this._creatorPopup.add(panelContainer);
+
+    const popupBg = this.add.image(0, 0, "GJ_popup").setScale(1.5);
+    panelContainer.add(popupBg);
+
+    const closeBtn = this.add.image(-popupBg.displayWidth / 2, -popupBg.displayHeight / 2, "GJ_WebSheet", "GJ_closeBtn_001.png").setScale(0.8).setInteractive();
+    this._expandHitArea(closeBtn, 2);
+    this._makeBouncyButton(closeBtn, 0.8, () => this._closeCreatorPopup());
+    panelContainer.add(closeBtn);
+
+    panelContainer.setScale(0);
+    this.tweens.add({
+      targets: panelContainer,
+      scale: 1,
+      duration: 660,
+      ease: "Elastic.Out",
+      easeParams: [1, 0.6]
+    });
+  }
+  _closeCreatorPopup() {
+    if (this._creatorPopup) {
+      this._creatorPopup.destroy();
+      this._creatorPopup = null;
     }
   }
   _buildUpdateLogPopup() {
