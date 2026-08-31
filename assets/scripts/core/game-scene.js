@@ -6443,7 +6443,7 @@ _showwippopup() {
     const popupBg = this.add.image(0, 0, "GJ_popup").setScale(1);
     panelContainer.add(popupBg);
 
-    const closeBtn = this.add.image(-popupBg.displayWidth / 2 + 30, -popupBg.displayHeight / 2 + 30, "GJ_WebSheet", "GJ_closeBtn_001.png").setScale(0.8).setInteractive();
+    const closeBtn = this.add.image(-popupBg.displayWidth / 2 + 15, -popupBg.displayHeight / 2 + 15, "GJ_WebSheet", "GJ_closeBtn_001.png").setScale(0.8).setInteractive();
     this._expandHitArea(closeBtn, 2);
     this._makeBouncyButton(closeBtn, 0.8, () => this._closeCreatorPopup());
     panelContainer.add(closeBtn);
